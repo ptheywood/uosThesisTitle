@@ -1,6 +1,6 @@
 # uosThesisTitlepage
 
-A latex package which provides a title page matching (and extending) the [example title](https://www.sheffield.ac.uk/polopoly_fs/1.463911!/file/Sample_thesis_title_page.pdf) page provided by the [Research &ampl; Innovation Services](https://www.sheffield.ac.uk/ris) of the [University of Sheffield](https://www.sheffield.ac.uk/).
+A latex package which provides a title page matching (and extending) the [example title](https://www.sheffield.ac.uk/polopoly_fs/1.463911!/file/Sample_thesis_title_page.pdf) page provided by the [Research & Innovation Services](https://www.sheffield.ac.uk/ris) of the [University of Sheffield](https://www.sheffield.ac.uk/).
 
 ## Warning 
 
@@ -34,7 +34,7 @@ A latex package which provides a title page matching (and extending) the [exampl
 
 The University of Sheffield logo can be found on the University's Marketing team website > [Downloadable logos for use in print and on screen](https://www.sheffield.ac.uk/marketing/help-yourself/visual-identity/downloads/logos)
 
-## `@Todo`
+## @Todo
 
 + [ ] Provide correct comment in the head of the sty file
 + [ ] Correctly make parameters optional
