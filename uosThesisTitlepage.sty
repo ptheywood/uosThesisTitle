@@ -1,0 +1,85 @@
+% Copyright note: @todo
+\ProvidesPackage{uosThesisTitlepage}[2015/10/12 v.01]
+\RequirePackage{graphicx}
+\RequirePackage{geometry}
+
+% Define several variables/commands to store parts of the page
+
+% Path to image, defaults to an example image
+\newcommand*{\universityLogoImage}[1]{\gdef\@universityLogoImage{#1}%
+}
+\newcommand*{\@universityLogoImage}{example-image-16x9}
+% Optional subtitle, defaults to nothing
+\newcommand*{\subtitle}[1]{\gdef\@subtitle{#1}%
+}
+\newcommand*{\@subtitle}{}
+% Supervisor names, @todo - make optional
+\newcommand*{\supervisors}[1]{\gdef\@supervisors{#1}%
+}
+\newcommand*{\@supervisors}{Supervisor A\par Supervisor B}
+% Statement detailing the purpose of the document
+\newcommand*{\documentStatement}[1]{\gdef\@documentStatement{#1}%
+}
+\newcommand*{\@documentStatement}{A thesis submitted in partial fulfilment of the requirements for the degree of
+Doctor of Philosophy}
+% The name of the university (Defaults to Sheffield)
+\newcommand*{\university}[1]{\gdef\@university{#1}%
+}
+\newcommand*{\@university}{The University of Sheffield}
+% The name of the faculty
+\newcommand*{\faculty}[1]{\gdef\@faculty{#1}%
+}
+\newcommand*{\@faculty}{Faculty of ...}
+% The name of school or department
+\newcommand*{\department}[1]{\gdef\@department{#1}%
+}
+\newcommand*{\@department}{School (or Department) of ...}
+
+% Redefine the make title command with the more complex title page layout, matching and expanding the suggested example from RIS (https://www.sheffield.ac.uk/ris/pgr/code/formatting)
+\renewcommand*{\maketitle}{%
+% Redefine page geometry to match the suggested page style.
+% @todo - this should probably be made optional
+\newgeometry{top=0.75in,bottom=0.75in,right=1.25in,left=1.25in}
+
+\begin{titlepage}
+% Center everything
+\centering
+
+% Include the university logo
+\includegraphics[height=1.0in,keepaspectratio]{\@universityLogoImage}\par
+% Fill space to vertically center the remaining content.
+\vfill
+% Include the thesis title
+{\bfseries\LARGE\@title\unskip\strut\par}
+\vspace{0.75cm}
+% Include an optional report subtitle
+{\bfseries\Large\@subtitle\unskip\strut\par}
+\vspace{1.0cm}
+% Include the author name with "By: Prefix"
+{\large\bfseries By:\par}
+{\Large\@author\unskip\strut\par}
+\vspace{1.0cm}
+% Include supervisors
+% @todo - make this optional
+{\large\bfseries Supervised By:\par}
+{\large\@supervisors\unskip\strut\par}
+\vspace{1.0cm}
+% Include the document statement
+{\large\@documentStatement\unskip\strut\par}
+\vspace{2.5cm}
+% Include details of University, Faculty and Department/School
+{\large\@university\unskip\strut\par}
+{\large\@faculty\unskip\strut\par}
+{\large\@department\unskip\strut\par}
+\vspace{1.0cm}
+% Fill space to push date down
+\vfill
+% Include Date
+{\large \@date\par}
+% Fill space at end of page
+\vfill
+\end{titlepage}
+% Restore the original page geometry
+\restoregeometry
+}
+\endinput
