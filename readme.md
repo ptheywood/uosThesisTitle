@@ -1,4 +1,4 @@
-# uosThesisTitlepage
+# uosThesisTitle
 
 A latex package which provides a title page matching (and extending) the [example title](https://www.sheffield.ac.uk/polopoly_fs/1.463911!/file/Sample_thesis_title_page.pdf) page provided by the [Research & Innovation Services](https://www.sheffield.ac.uk/ris) of the [University of Sheffield](https://www.sheffield.ac.uk/).
 
@@ -8,11 +8,11 @@ A latex package which provides a title page matching (and extending) the [exampl
 
 ## Usage
 
-1. Copy the `uosThesisTitlepage.sty` into a directory onto a directory on your `TEXPATH` (i.e. the same directory as your `.tex` files)
+1. Copy the `uosThesisTitle.sty` into a directory onto a directory on your `TEXPATH` (i.e. the same directory as your `.tex` files)
 
 2. Include the package in your preamble
     ```
-    \usepackage{UoSThesisTitle}
+    \usepackage{uosThesisTitle}
     ```
 
 3. Input your title page details as required
