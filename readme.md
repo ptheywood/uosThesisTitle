@@ -4,11 +4,11 @@ A latex package which provides a title page matching (and extending) the [exampl
 
 ## Warning 
 
-> Although usable this package is still under development and changes may/will break backwards compatibility for now (see `@todo` comments)
+> Although usable this package is still under development and changes may/will break backwards compatibility
 
 ## Usage
 
-1. Copy the `uosThesisTitle.sty` into a directory onto a directory on your `TEXPATH` (i.e. the same directory as your `.tex` files)
+1. Copy the `uosThesisTitle.sty` into a directory on your `TEXPATH` (i.e. the same directory as your `.tex` files)
 
 2. Include the package in your preamble
     ```
@@ -32,7 +32,7 @@ A latex package which provides a title page matching (and extending) the [exampl
 
 ### Package Options
 
-Several options can be provided to the package to toggle certain features (i.e. `\usepackage[option_key]{uosThesisTitle}`).
+Several options can be provided to the package to toggle certain features (i.e. `\usepackage[options]{uosThesisTitle}`).
 
 
 + `defaultMargins` - Do not set margins in the package to match the RIS example title page.
