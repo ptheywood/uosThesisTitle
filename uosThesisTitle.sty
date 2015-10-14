@@ -1,10 +1,21 @@
 % Copyright note: @todo
 \ProvidesPackage{uosThesisTitle}[2015/10/12 v.01]
+\RequirePackage{etoolbox}
 \RequirePackage{graphicx}
 \RequirePackage{geometry}
 
-% Define several variables/commands to store parts of the page
+% Define package option toggles
+\newtoggle{defaultMargins}
+\DeclareOption{defaultMargins}{\toggletrue{defaultMargins}}
+\newtoggle{hideSubtitle}
+\DeclareOption{hideSubtitle}{\toggletrue{hideSubtitle}}
+\newtoggle{hideSupervisors}
+\DeclareOption{hideSupervisors}{\toggletrue{hideSupervisors}}
 
+% Process package options
+\ProcessOptions
+
+% Define variables/commands to store parts of the page
 % Path to image, defaults to an example image
 \newcommand*{\universityLogoImage}[1]{\gdef\@universityLogoImage{#1}%
 }
@@ -13,7 +24,7 @@
 \newcommand*{\subtitle}[1]{\gdef\@subtitle{#1}%
 }
 \newcommand*{\@subtitle}{}
-% Supervisor names, @todo - make optional
+% Supervisor names
 \newcommand*{\supervisors}[1]{\gdef\@supervisors{#1}%
 }
 \newcommand*{\@supervisors}{Supervisor A\par Supervisor B}
@@ -37,9 +48,15 @@ Doctor of Philosophy}
 
 % Redefine the make title command with the more complex title page layout, matching and expanding the suggested example from RIS (https://www.sheffield.ac.uk/ris/pgr/code/formatting)
 \renewcommand*{\maketitle}{%
-% Redefine page geometry to match the suggested page style.
-% @todo - this should probably be made optional
-\newgeometry{top=0.75in,bottom=0.75in,right=1.25in,left=1.25in}
+\nottoggle{defaultMargins}{%
+    % Redefine page geometry to match the suggested page style.
+    \newgeometry{
+        top=0.75in,
+        bottom=0.75in,
+        right=1.25in,
+        left=1.25in
+    }
+}
 
 \begin{titlepage}
 % Center everything
@@ -53,16 +70,24 @@ Doctor of Philosophy}
 {\bfseries\LARGE\@title\unskip\strut\par}
 \vspace{0.75cm}
 % Include an optional report subtitle
-{\bfseries\Large\@subtitle\unskip\strut\par}
+\nottoggle{hideSubtitle}{%
+    {\bfseries\Large\@subtitle\unskip\strut\par}
+}{%
+    {\bfseries\Large\unskip\strut\par}
+}
 \vspace{1.0cm}
 % Include the author name with "By: Prefix"
 {\large\bfseries By:\par}
 {\Large\@author\unskip\strut\par}
 \vspace{1.0cm}
-% Include supervisors
-% @todo - make this optional
-{\large\bfseries Supervised By:\par}
-{\large\@supervisors\unskip\strut\par}
+% Show the supervisors if required
+\nottoggle{hideSupervisors}{%
+    {\large\bfseries Supervised By:\par}
+    {\large\@supervisors\unskip\strut\par}
+}{%
+    {\large\bfseries\unskip\strut\par}
+    {\large\unskip\strut\par} 
+}
 \vspace{1.0cm}
 % Include the document statement
 {\large\@documentStatement\unskip\strut\par}
@@ -79,7 +104,9 @@ Doctor of Philosophy}
 % Fill space at end of page
 \vfill
 \end{titlepage}
-% Restore the original page geometry
-\restoregeometry
+\nottoggle{defaultMargins}{%
+    % Restore the original page geometry
+    \restoregeometry
+}
 }
 \endinput
