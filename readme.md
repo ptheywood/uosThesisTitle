@@ -2,9 +2,11 @@
 
 A latex package which provides a title page matching (and extending) the [example title](https://www.sheffield.ac.uk/polopoly_fs/1.463911!/file/Sample_thesis_title_page.pdf) page provided by the [Research & Innovation Services](https://www.sheffield.ac.uk/ris) of the [University of Sheffield](https://www.sheffield.ac.uk/).
 
+
 ## Warning 
 
 > Although usable this package is still under development and changes may/will break backwards compatibility
+
 
 ## Usage
 
@@ -30,6 +32,7 @@ A latex package which provides a title page matching (and extending) the [exampl
 
 4. Include a call to `\maketitle`
 
+
 ### Package Options
 
 Several options can be provided to the package to toggle certain features (i.e. `\usepackage[options]{uosThesisTitle}`).
@@ -42,13 +45,6 @@ Several options can be provided to the package to toggle certain features (i.e. 
 ### Note
 
 The University of Sheffield logo can be found on the University's Marketing team website > [Downloadable logos for use in print and on screen](https://www.sheffield.ac.uk/marketing/help-yourself/visual-identity/downloads/logos)
-
-## @Todo
-
-+ [ ] Provide correct comment in the head of the sty file
-+ [ ] Correctly make parameters optional
-    + [ ] By providing arguments to the package?
-+ [ ] Improved documentation
 
 
 ## Licence
