@@ -30,6 +30,15 @@ A latex package which provides a title page matching (and extending) the [exampl
 
 4. Include a call to `\maketitle`
 
+### Package Options
+
+Several options can be provided to the package to toggle certain features (i.e. `\usepackage[option_key]{uosThesisTitle}`).
+
+
++ `defaultMargins` - Do not set margins in the package to match the RIS example title page.
++ `hideSubtitle` - Hide the subtitle from being displayed.
++ `hideSupervisors` - Hide the Supervised By heading and content.
+
 ### Note
 
 The University of Sheffield logo can be found on the University's Marketing team website > [Downloadable logos for use in print and on screen](https://www.sheffield.ac.uk/marketing/help-yourself/visual-identity/downloads/logos)
