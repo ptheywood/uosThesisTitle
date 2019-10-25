@@ -76,14 +76,14 @@ Doctor of Philosophy}
 \vfill
 % Include the thesis title
 {\bfseries\LARGE\@title\unskip\strut\par}
-\vspace{0.75cm}
+\vfill
 % Include an optional report subtitle
 \ifdefempty{\@supervisors}{%
     {\bfseries\Large\unskip\strut\par}
 }{%
     {\bfseries\Large\@subtitle\unskip\strut\par}
 }
-\vspace{0.75cm}
+\vfill
 % Include the author name with "By: Prefix"
 \nottoggle{showAuthorPrefix}{%
     {\large\bfseries\par}
@@ -91,7 +91,7 @@ Doctor of Philosophy}
     {\large\bfseries By:\par}
 }
 {\Large\@author\unskip\strut\par}
-\vspace{1.0cm}
+\vfill
 % Show the supervisors if required
 \ifdefempty{\@supervisors}{%
     {\large\bfseries\unskip\strut\par}
@@ -100,15 +100,15 @@ Doctor of Philosophy}
     {\large\bfseries Supervised By:\par}
     {\large\@supervisors\unskip\strut\par}
 }
-\vspace{1.0cm}
+\vfill
 % Include the document statement
 {\large\@documentStatement\unskip\strut\par}
-\vspace{2.5cm}
+\vfill
 % Include details of University, Faculty and Department/School
 {\large\@university\unskip\strut\par}
 {\large\@faculty\unskip\strut\par}
 {\large\@department\unskip\strut\par}
-\vspace{1.0cm}
+\vfill
 % Fill space to push date down
 \vfill
 % Include Date
