@@ -5,7 +5,7 @@
 %
 % This work is licensed under the MIT License (see LICENSE)
 
-\ProvidesPackage{uosThesisTitle}[2015/10/14 v0.2.0]
+\ProvidesPackage{uosThesisTitle}[2019/10/25 v0.3.0]
 \RequirePackage{etoolbox}
 \RequirePackage{graphicx}
 \RequirePackage{geometry}
@@ -13,10 +13,8 @@
 % Define package option toggles
 \newtoggle{defaultMargins}
 \DeclareOption{defaultMargins}{\toggletrue{defaultMargins}}
-\newtoggle{hideSubtitle}
-\DeclareOption{hideSubtitle}{\toggletrue{hideSubtitle}}
-\newtoggle{hideSupervisors}
-\DeclareOption{hideSupervisors}{\toggletrue{hideSupervisors}}
+\newtoggle{showAuthorPrefix}
+\DeclareOption{showAuthorPrefix}{\toggletrue{showAuthorPrefix}}
 
 % Process package options
 \ProcessOptions
@@ -69,30 +67,38 @@ Doctor of Philosophy}
 \centering
 
 % Include the university logo
-\includegraphics[height=1.0in,keepaspectratio]{\@universityLogoImage}\par
+\ifdefempty{\@universityLogoImage}{%
+    \vspace*{2.5cm}
+}{%
+    \includegraphics[height=2.5cm,keepaspectratio]{\@universityLogoImage}\par
+}
 % Fill space to vertically center the remaining content.
 \vfill
 % Include the thesis title
 {\bfseries\LARGE\@title\unskip\strut\par}
 \vspace{0.75cm}
 % Include an optional report subtitle
-\nottoggle{hideSubtitle}{%
-    {\bfseries\Large\@subtitle\unskip\strut\par}
-}{%
+\ifdefempty{\@supervisors}{%
     {\bfseries\Large\unskip\strut\par}
+}{%
+    {\bfseries\Large\@subtitle\unskip\strut\par}
 }
-\vspace{1.0cm}
+\vspace{0.75cm}
 % Include the author name with "By: Prefix"
-{\large\bfseries By:\par}
+\nottoggle{showAuthorPrefix}{%
+    {\large\bfseries\par}
+}{%
+    {\large\bfseries By:\par}
+}
 {\Large\@author\unskip\strut\par}
 \vspace{1.0cm}
 % Show the supervisors if required
-\nottoggle{hideSupervisors}{%
-    {\large\bfseries Supervised By:\par}
-    {\large\@supervisors\unskip\strut\par}
-}{%
+\ifdefempty{\@supervisors}{%
     {\large\bfseries\unskip\strut\par}
     {\large\unskip\strut\par} 
+}{%
+    {\large\bfseries Supervised By:\par}
+    {\large\@supervisors\unskip\strut\par}
 }
 \vspace{1.0cm}
 % Include the document statement
